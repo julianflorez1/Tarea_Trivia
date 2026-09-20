@@ -1,0 +1,3 @@
+.sonar/
+__pycache__/
+*.pyc

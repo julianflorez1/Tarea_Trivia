@@ -1,0 +1,5 @@
+**/*.xcodeproj/project.xcworkspace/
+**/*.xcodeproj/xcuserdata/
+/.idea/
+.build/
+.swiftpm/
