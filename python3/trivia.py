@@ -29,9 +29,10 @@ class Game:
 
     def add(self, player_name):
         self.players.append(player_name)
-        self.places[self.how_many_players] = 0
-        self.purses[self.how_many_players] = 0
-        self.in_penalty_box[self.how_many_players] = False
+        player_index = self.how_many_players - 1
+        self.places[player_index] = 0
+        self.purses[player_index] = 0
+        self.in_penalty_box[player_index] = False
 
         print(player_name + " was added")
         print("They are player number %s" % len(self.players))
@@ -140,10 +141,10 @@ class Game:
         return True
 
     def _did_player_win(self):
-        return not (self.purses[self.current_player] == 6)
+        return self.purses[self.current_player] != 6
 
 
-from random import randrange
+from secrets import randbelow
 
 if __name__ == '__main__':
     not_a_winner = False
@@ -155,9 +156,9 @@ if __name__ == '__main__':
     game.add('Sue')
 
     while True:
-        game.roll(randrange(5) + 1)
+        game.roll(randbelow(5) + 1)
 
-        if randrange(9) == 7:
+        if randbelow(9) == 7:
             not_a_winner = game.wrong_answer()
         else:
             not_a_winner = game.was_correctly_answered()

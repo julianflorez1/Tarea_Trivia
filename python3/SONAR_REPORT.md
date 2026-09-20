@@ -73,4 +73,14 @@ En este juego el azar no parece estar relacionado con autenticación, tokens, co
 
 ## Conclusión
 
-La ejecución de SonarQube fue correcta y el Quality Gate actual está aprobado. La prioridad técnica es añadir pruebas automatizadas y cobertura; después debe revisarse el uso de `random.randrange` señalado por SonarQube. El código no presenta bugs detectados ni duplicación, pero todavía no cuenta con evidencia automatizada suficiente para evaluar su comportamiento.
+La ejecución original de SonarQube fue correcta y el Quality Gate estaba aprobado. Esta versión corrige los hallazgos de código y añade pruebas automatizadas. Aún falta generar `coverage.xml` y repetir el análisis con un token nuevo para confirmar las métricas actualizadas.
+
+## Cambios aplicados para la siguiente versión
+
+- Se corrigió el índice utilizado por `Game.add()`, evitando el desplazamiento de jugadores y el `IndexError` al agregar seis jugadores.
+- Se reemplazó la comparación negada de `_did_player_win()` por `!=`, atendiendo la regla `python:S1940`.
+- Se reemplazó `random.randrange` por `secrets.randbelow`, atendiendo las dos incidencias `python:S2245` del flujo ejecutable.
+- Se añadieron cinco pruebas unitarias en [test_trivia.py](test_trivia.py), todas aprobadas localmente.
+- La compilación de `trivia.py` y `test_trivia.py` también fue validada correctamente.
+
+La nueva ejecución de SonarQube debe realizarse después de configurar un token nuevo para confirmar la desaparición de las tres incidencias y actualizar la cobertura.
