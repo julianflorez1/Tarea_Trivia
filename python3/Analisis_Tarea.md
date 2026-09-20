@@ -1,4 +1,4 @@
-//#
+/*
 Análisis proyecto de la Trivia
 
 Proyecto de la trivia analizado Python 3
@@ -135,4 +135,4 @@ Ahora presentamos las mejoras según el informe de calidad
 
 Token de Sonar: configurado mediante la variable de entorno `SONAR_TOKEN`.
 El token no debe almacenarse en archivos ni incluirse en commits.
-#//
+*/
